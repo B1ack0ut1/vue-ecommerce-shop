@@ -1,5 +1,12 @@
-<script setup></script>
+<script setup>
+import ProductsList from "@/components/ProductsList.vue";
+</script>
 
 <template>
-  <main>HomeView</main>
+  <main>
+    <Suspense>
+      <ProductsList />
+      <template #fallback> Loading... </template>
+    </Suspense>
+  </main>
 </template>
