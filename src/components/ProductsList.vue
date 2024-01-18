@@ -8,15 +8,7 @@
 <script setup>
 import { useFetch } from "@vueuse/core";
 
-// import { useProductsStore } from "@/stores/products";
+import { useProducts } from "../composables/products";
 
-// const { isFetching, error, products } = await useProductsStore();
-
-const { isFetching, error, data } = await useFetch(
-  "https://fakestoreapi.com/products"
-);
-
-const products = await JSON.parse(data.value);
-
-console.log(products);
+const { isFetching, error, products } = await useProducts();
 </script>
