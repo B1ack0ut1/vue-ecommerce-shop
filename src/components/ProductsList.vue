@@ -1,14 +1,19 @@
 <template>
-  <section>
-    <div class="container mx-auto bg-slate-400">
-      <div v-for="product in filteredProducts">
-        <div>{{ product.title }}</div>
+  <section class="py-16">
+    <div class="container mx-auto">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0"
+      >
+        <div v-for="product in filteredProducts" class="w-full h-[300px]">
+          <Product :key="product.id" :product="product" />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import Product from "./Product.vue";
 import { useFetch } from "@vueuse/core";
 
 import { useProducts } from "../composables/products";
