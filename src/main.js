@@ -23,5 +23,7 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
+// Globally register font awesome icon component
+app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.mount("#app");
