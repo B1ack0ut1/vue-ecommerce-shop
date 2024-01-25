@@ -14,8 +14,6 @@
 
 <script setup>
 import Product from "./Product.vue";
-import { useFetch } from "@vueuse/core";
-
 import { useProducts } from "../composables/products";
 
 const { isFetching, error, products } = await useProducts();
