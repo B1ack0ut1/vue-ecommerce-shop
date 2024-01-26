@@ -15,6 +15,7 @@
           <button>
             <div
               class="flex justify-center items-center text-white w-12 h-12 bg-red-500 mb-2"
+              @click="cartStore.addToCart(product, id)"
             >
               <font-awesome-icon icon="plus" />
             </div>
@@ -42,10 +43,13 @@
 
 <script setup>
 import { RouterLink } from "vue-router";
+import { useCartStore } from "@/stores/cart";
 
 const props = defineProps({
   product: Object,
 });
+
+const cartStore = useCartStore();
 
 const { id, image, category, title, price } = props.product;
 </script>

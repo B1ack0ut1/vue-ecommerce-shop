@@ -18,10 +18,11 @@ import {
   faPlus,
   faEye,
   faBagShopping,
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faPlus, faEye, faBagShopping);
+library.add(faPlus, faEye, faBagShopping, faArrowRight);
 
 const app = createApp(App);
 

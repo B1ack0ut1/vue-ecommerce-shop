@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 
 export const useSidebarStore = defineStore("sidebar", () => {
   const isOpen = ref(false);
+
   function handleClose() {
     isOpen.value = false;
   }
