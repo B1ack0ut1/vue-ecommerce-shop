@@ -49,7 +49,7 @@ const props = defineProps({
   product: Object,
 });
 
-const cartStore = useCartStore();
-
 const { id, image, category, title, price } = props.product;
+
+const cartStore = useCartStore();
 </script>

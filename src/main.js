@@ -19,10 +19,11 @@ import {
   faEye,
   faBagShopping,
   faArrowRight,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faPlus, faEye, faBagShopping, faArrowRight);
+library.add(faPlus, faEye, faBagShopping, faArrowRight, faTrash);
 
 const app = createApp(App);
 
