@@ -5,8 +5,8 @@
       <div class="w-[200px] mx-auto flex justify-center items-center">
         <img
           class="max-h-[160px] group-hover:scale-110 transition duration-300"
-          :src="image"
-          :alt="title"
+          :src="product.image"
+          :alt="product.title"
         />
         <!-- buttons -->
         <div
@@ -15,13 +15,13 @@
           <button>
             <div
               class="flex justify-center items-center text-white w-12 h-12 bg-red-500 mb-2"
-              @click="cartStore.addToCart(product, id)"
+              @click="cartStore.addToCart(product, product.id)"
             >
               <font-awesome-icon icon="plus" />
             </div>
           </button>
           <RouterLink
-            :to="{ name: 'ProductDetails', params: { id } }"
+            :to="{ name: 'ProductDetails', params: { id: product.id } }"
             class="w-12 h-12 bg-white flex justify-center items-center text-primary drop-shadow-xl"
           >
             <font-awesome-icon icon="eye" />
@@ -32,12 +32,14 @@
   </div>
   <!-- category & title & price -->
   <div>
-    <div class="text-sm capitalize text-gray-500 mb-1">{{ category }}</div>
+    <div class="text-sm capitalize text-gray-500 mb-1">
+      {{ product.category }}
+    </div>
 
-    <RouterLink :to="{ name: 'ProductDetails', params: { id } }">
-      <h2 class="font-semibold mb-1">{{ title }}</h2>
+    <RouterLink :to="{ name: 'ProductDetails', params: { id: product.id } }">
+      <h2 class="font-semibold mb-1">{{ product.title }}</h2>
     </RouterLink>
-    <div class="font-semibold">$ {{ price }}</div>
+    <div class="font-semibold">$ {{ product.price }}</div>
   </div>
 </template>
 
@@ -48,8 +50,6 @@ import { useCartStore } from "@/stores/cart";
 const props = defineProps({
   product: Object,
 });
-
-const { id, image, category, title, price } = props.product;
 
 const cartStore = useCartStore();
 </script>

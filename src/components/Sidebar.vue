@@ -4,7 +4,9 @@
     :class="sidebarState"
   >
     <div class="flex items-center justify-between py-6 border-b">
-      <div class="uppercase text-sm font-semibold">Shopping Bag (0)</div>
+      <div class="uppercase text-sm font-semibold">
+        Shopping Bag ({{ items.itemAmount }})
+      </div>
       <div
         @click="sidebarStore.handleClose"
         class="cursor-pointer w-8 h-8 flex justify-center items-center"
@@ -15,6 +17,21 @@
     <div v-for="cartItem in cartStore.cart">
       <CartItem :key="cartItem.id" :cartItem="cartItem" />
     </div>
+    <div class="bg-pink-200 py-4 mt-4">
+      <div class="flex w-full justify-between items-center">
+        <!-- total -->
+        <div class="uppercase font-semibold">
+          <span class="mr-2">Total:</span>$1000
+        </div>
+        <!-- Clear cart icon -->
+        <div
+          class="cursor-pointer py-4 bg-red-500 text-white w-12 h-12 flex justify-center items-center text-xl"
+          @click="cartStore.clearCart"
+        >
+          <font-awesome-icon icon="trash" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,9 +41,11 @@ import CartItem from "./CartItem.vue";
 import { useSidebarStore } from "@/stores/sidebar";
 import { useCartStore } from "@/stores/cart";
 import { computed } from "vue";
+import { useItems } from "@/composables/items";
 
 const sidebarStore = useSidebarStore();
 const cartStore = useCartStore();
+const items = useItems();
 
 const sidebarState = computed(() => {
   return sidebarStore.isOpen ? "right-0" : "-right-full";
