@@ -30,7 +30,6 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useItems } from "@/composables/items";
 
 const sidebarStore = useSidebarStore();
-const cartStore = useCartStore();
 const items = useItems();
 
 const isActive = ref(false);

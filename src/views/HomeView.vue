@@ -1,8 +1,3 @@
-<script setup>
-import ProductsList from "@/components/ProductsList.vue";
-import Home from "@/components/Home.vue";
-</script>
-
 <template>
   <main>
     <Suspense>
@@ -11,3 +6,7 @@ import Home from "@/components/Home.vue";
     </Suspense>
   </main>
 </template>
+
+<script setup>
+import Home from "@/components/Home.vue";
+</script>

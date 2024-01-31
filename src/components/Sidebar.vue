@@ -60,6 +60,7 @@ const cartStore = useCartStore();
 const items = useItems();
 
 const sidebarState = computed(() => {
+  console.log("changing sidebar state");
   return sidebarStore.isOpen ? "right-0" : "-right-full";
 });
 

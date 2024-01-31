@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="bg-pink-200 h-[800px] bg-hero bg-no-repeat bg-cover bg-center py-24"
-  >
+  <section class="h-[800px] bg-hero bg-no-repeat bg-cover bg-center py-24">
     <div class="container mx-auto flex justify-around h-full">
       <!-- text -->
       <div class="flex flex-col justify-center">

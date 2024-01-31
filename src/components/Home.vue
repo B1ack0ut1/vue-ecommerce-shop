@@ -1,6 +1,5 @@
 <template>
   <Hero />
-  <Sidebar />
   <ProductsList />
 </template>
 
