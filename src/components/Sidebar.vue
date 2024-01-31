@@ -17,11 +17,11 @@
     <div v-for="cartItem in cartStore.cart">
       <CartItem :key="cartItem.id" :cartItem="cartItem" />
     </div>
-    <div class="bg-pink-200 py-4 mt-4">
+    <div class="flex flex-col gap-y-3 py-4 mt-4">
       <div class="flex w-full justify-between items-center">
         <!-- total -->
         <div class="uppercase font-semibold">
-          <span class="mr-2">Total:</span>$1000
+          <span class="mr-2">Total:</span>$ {{ totalPrice }}
         </div>
         <!-- Clear cart icon -->
         <div
@@ -31,6 +31,18 @@
           <font-awesome-icon icon="trash" />
         </div>
       </div>
+      <RouterLink
+        to="/"
+        class="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium"
+      >
+        View cart
+      </RouterLink>
+      <RouterLink
+        to="/"
+        class="bg-primary flex p-4 justify-center items-center text-white w-full font-medium"
+      >
+        Checkout
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -49,5 +61,12 @@ const items = useItems();
 
 const sidebarState = computed(() => {
   return sidebarStore.isOpen ? "right-0" : "-right-full";
+});
+
+const totalPrice = computed(() => {
+  const rawTotalPrice = cartStore.cart.reduce((acc, item) => {
+    return acc + item.amount * item.price;
+  }, 0);
+  return rawTotalPrice.toFixed(2);
 });
 </script>

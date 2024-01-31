@@ -1,5 +1,10 @@
 <template>
-  <div></div>
+  <div>Product Details Page</div>
+  <div>{{ $route.params.id }}</div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+</script>

@@ -25,15 +25,12 @@ export const useCartStore = defineStore("cart", () => {
   }
 
   function removeFromCart(id) {
-    console.log("3");
     const cartData = toRaw(cart.value);
-    console.log(cartData);
     const newCart = cartData.filter((item) => {
       return item.id !== id;
     });
 
     cart.value = newCart;
-    console.log(cart);
   }
 
   function clearCart() {
